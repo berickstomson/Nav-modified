@@ -7,6 +7,10 @@ export const BUILDINGS: FeatureCollection<Polygon> = {
       type: "Feature",
       properties: {
         Block: "Block 6",
+        placeId: "sixth-block",
+        name: "Sixth block",
+        type: "academic",
+        floors: 4,
       },
       geometry: {
         coordinates: [
@@ -27,6 +31,10 @@ export const BUILDINGS: FeatureCollection<Polygon> = {
       type: "Feature",
       properties: {
         Block: "PU Block",
+        placeId: "pu-block",
+        name: "PU block",
+        type: "academic",
+        floors: 4,
       },
       geometry: {
         coordinates: [
@@ -52,7 +60,11 @@ export const BUILDINGS: FeatureCollection<Polygon> = {
     {
       type: "Feature",
       properties: {
-        Block: " architecture",
+        Block: " Architecture",
+        placeId: " architecture",
+        name: " Architecture",
+        type: "academic",
+        floors: 4,
       },
       geometry: {
         coordinates: [
@@ -74,7 +86,11 @@ export const BUILDINGS: FeatureCollection<Polygon> = {
     {
       type: "Feature",
       properties: {
-        Block: 4,
+        Block: "Block 4",
+        placeId: "fourth-block",
+        name: "Fourth block",
+        type: "cafeteria",
+        floors: 4,
       },
       geometry: {
         coordinates: [
@@ -95,7 +111,11 @@ export const BUILDINGS: FeatureCollection<Polygon> = {
     {
       type: "Feature",
       properties: {
-        Block: "Chapel ",
+        Block: "Chapel",
+        placeId: "chapel",
+        name: "Chapel",
+        type: "spiritual",
+        floors: 1,
       },
       geometry: {
         coordinates: [
@@ -116,6 +136,10 @@ export const BUILDINGS: FeatureCollection<Polygon> = {
       type: "Feature",
       properties: {
         Block: "Block 3",
+        placeId: "third-block",
+        name: "Third block",
+        type: "academic",
+        floors: 5,
       },
       geometry: {
         coordinates: [
@@ -136,6 +160,10 @@ export const BUILDINGS: FeatureCollection<Polygon> = {
       type: "Feature",
       properties: {
         Block: "Devdan",
+        placeId: "devdan",
+        name: "Devdan",
+        type: "Hostel",
+        floors: 4,
       },
       geometry: {
         coordinates: [
@@ -156,6 +184,10 @@ export const BUILDINGS: FeatureCollection<Polygon> = {
       type: "Feature",
       properties: {
         Block: "Block 2",
+        placeId: "second-block",
+        name: "Second block",
+        type: "academic",
+        floors: 4,
       },
       geometry: {
         coordinates: [
@@ -175,7 +207,7 @@ export const BUILDINGS: FeatureCollection<Polygon> = {
     {
       type: "Feature",
       properties: {
-        Block: "Block 5",
+        Block: "",
       },
       geometry: {
         coordinates: [
@@ -197,6 +229,10 @@ export const BUILDINGS: FeatureCollection<Polygon> = {
       type: "Feature",
       properties: {
         Block: "Block 5",
+        placeId: "fifth-block",
+        name: "Fifth block",
+        type: "academic",
+        floors: 4,
       },
       geometry: {
         coordinates: [
@@ -217,6 +253,10 @@ export const BUILDINGS: FeatureCollection<Polygon> = {
       type: "Feature",
       properties: {
         Block: "Block 1",
+        placeId: "first-block",
+        name: "First block",
+        type: "academic",
+        floors: 4,
       },
       geometry: {
         coordinates: [

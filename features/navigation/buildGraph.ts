@@ -1,7 +1,7 @@
 import { distance, point } from "@turf/turf";
 import { FeatureCollection, LineString } from "geojson";
 
-const CONNECT_THRESHOLD_METERS = 20;
+const CONNECT_THRESHOLD_METERS = 8;
 
 export type GraphNode = {
   id: string;
@@ -56,11 +56,17 @@ export function buildGraph(paths: FeatureCollection<LineString>): Graph {
     }
   }
 
-  const nodeIds = Object.keys(nodes);
-  for (let i = 0; i < nodeIds.length; i++) {
-    for (let j = i + 1; j < nodeIds.length; j++) {
-      const idA = nodeIds[i];
-      const idB = nodeIds[j];
+  const degree: Record<string, number> = {};
+  for (const edge of edges) {
+    degree[edge.from] = (degree[edge.from] ?? 0) + 1;
+  }
+
+  const connectable = Object.keys(nodes).filter((id) => (degree[id] ?? 0) <= 2);
+
+  for (let i = 0; i < connectable.length; i++) {
+    for (let j = i + 1; j < connectable.length; j++) {
+      const idA = connectable[i];
+      const idB = connectable[j];
       const a = nodes[idA];
       const b = nodes[idB];
       if (!a || !b) continue;

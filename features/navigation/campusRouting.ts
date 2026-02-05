@@ -33,6 +33,58 @@ const cloneGraph = (graph: Graph): Graph => ({
 const distanceMeters = (a: [number, number], b: [number, number]) =>
   turfDistance(point(a), point(b), { units: "meters" });
 
+const buildAdjacency = (graph: Graph) => {
+  const adj: Record<string, string[]> = {};
+  for (const edge of graph.edges) {
+    if (!adj[edge.from]) adj[edge.from] = [];
+    adj[edge.from].push(edge.to);
+  }
+  return adj;
+};
+
+const computeComponents = (graph: Graph) => {
+  const adj = buildAdjacency(graph);
+  const comp: Record<string, number> = {};
+  let cid = 0;
+  for (const nodeId of Object.keys(graph.nodes)) {
+    if (comp[nodeId] !== undefined) continue;
+    const stack = [nodeId];
+    comp[nodeId] = cid;
+    while (stack.length) {
+      const current = stack.pop()!;
+      const neighbors = adj[current] ?? [];
+      for (const next of neighbors) {
+        if (comp[next] === undefined) {
+          comp[next] = cid;
+          stack.push(next);
+        }
+      }
+    }
+    cid += 1;
+  }
+  return comp;
+};
+
+const findNearestNodeInComponent = (
+  graph: Graph,
+  coord: [number, number],
+  comp: Record<string, number>,
+  componentId: number
+) => {
+  let bestNodeId: string | null = null;
+  let bestDist = Infinity;
+  for (const [nodeId, node] of Object.entries(graph.nodes)) {
+    if (comp[nodeId] !== componentId) continue;
+    const d = distanceMeters(coord, node.coord);
+    if (d < bestDist) {
+      bestDist = d;
+      bestNodeId = nodeId;
+    }
+  }
+  return bestNodeId;
+};
+
+
 export const getCampusRoute = async (
   startCoord: [number, number],
   endCoord: [number, number],
@@ -86,11 +138,45 @@ export const getCampusRoute = async (
     console.warn("Campus routing: failed to add end node, using nearest.", error);
   }
 
+  const components = computeComponents(workingGraph);
+  const startComp = components[startId];
+  const endComp = components[endId];
+  if (startComp !== undefined && endComp !== undefined && startComp !== endComp) {
+    const nearestInStart = findNearestNodeInComponent(
+      workingGraph,
+      endCoord,
+      components,
+      startComp
+    );
+    if (nearestInStart) {
+      endId = nearestInStart;
+    }
+  }
+
   const routeNodeIds = dijkstra(workingGraph, startId, endId);
 
   if (!routeNodeIds || routeNodeIds.length < 2) {
+    const startSnapDist = Math.round(
+      distanceMeters(startCoord, startSnap.snappedCoord)
+    );
+    const endSnapDist = Math.round(
+      distanceMeters(endCoord, endSnap.snappedCoord)
+    );
+    const startNode = workingGraph.nodes[startId];
+    const endNode = workingGraph.nodes[endId];
+    const nodeGap =
+      startNode && endNode
+        ? Math.round(distanceMeters(startNode.coord, endNode.coord))
+        : null;
     console.error(
-      "Campus routing: no connected path found. Check path connectivity or snap threshold."
+      "Campus routing: no connected path found. Check path connectivity or snap threshold.",
+      {
+        startSnapDistMeters: startSnapDist,
+        endSnapDistMeters: endSnapDist,
+        startNodeId: startId,
+        endNodeId: endId,
+        nodeGapMeters: nodeGap,
+      }
     );
     return null;
   }

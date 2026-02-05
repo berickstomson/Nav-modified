@@ -468,5 +468,6 @@ export const CAMPUS_PATHS: FeatureCollection<LineString> = {
       },
       id: "f5c1af549e0d068fa8a17aa35509a380",
     },
+    // Removed the temporary connectorbug path (it caused inconsistent routing).
   ],
 };

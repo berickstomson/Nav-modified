@@ -1,6 +1,11 @@
 import { CampusPlace } from "@/src/domain/campus";
 
-export type BuildingEntranceType = "main" | "side" | "service" | "accessible";
+export type BuildingEntranceType =
+  | "main"
+  | "side"
+  | "service"
+  | "accessible"
+  | "back";
 
 export type BuildingEntrance = {
   id: string;
@@ -35,6 +40,22 @@ export const BUILDING_ENTRANCES: BuildingEntrance[] = [
     name: "Side Entrance",
     coordinate: [77.438176, 12.862676],
     type: "side",
+    accessibility: true,
+  },
+  {
+    id: "thirdblock-audi",
+    buildingId: "third-block",
+    name: "Main Entrance",
+    coordinate: [77.438704, 12.862662],
+    type: "main",
+    accessibility: true,
+  },
+  {
+    id: "thirdblock-back",
+    buildingId: "third-block",
+    name: "Back Entrance",
+    coordinate: [77.43898591547452, 12.862586759476258],
+    type: "back",
     accessibility: true,
   },
 ];

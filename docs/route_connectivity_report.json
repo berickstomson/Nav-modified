@@ -1,0 +1,109 @@
+{
+  "components": 10,
+  "place_report": [
+    {
+      "id": "main-gate",
+      "name": "Main Gate",
+      "snap_m": 14.329434377140743,
+      "comp": 0
+    },
+    {
+      "id": "first-block",
+      "name": "First Block",
+      "snap_m": 8.915872523675878,
+      "comp": 0
+    },
+    {
+      "id": "second-block",
+      "name": "Second Block",
+      "snap_m": 14.026489804432655,
+      "comp": 3
+    },
+    {
+      "id": "third-block",
+      "name": "Third Block",
+      "snap_m": 16.13539193010917,
+      "comp": 3
+    },
+    {
+      "id": "fourth-block",
+      "name": "Fourth Block",
+      "snap_m": 19.051063804692557,
+      "comp": 6
+    },
+    {
+      "id": "sixth-block",
+      "name": "Sixth Block",
+      "snap_m": 1.5491016286908714,
+      "comp": 0
+    },
+    {
+      "id": "fifth-block",
+      "name": "Fifth Block",
+      "snap_m": 16.76412468561635,
+      "comp": 1
+    },
+    {
+      "id": "pu-block",
+      "name": "PU Block",
+      "snap_m": 22.160735968499157,
+      "comp": 0
+    },
+    {
+      "id": "architecture",
+      "name": "Architecture Block",
+      "snap_m": 61.582352365963494,
+      "comp": 0
+    },
+    {
+      "id": "devdan",
+      "name": "Devadan Hall",
+      "snap_m": 40.13491725155943,
+      "comp": 0
+    },
+    {
+      "id": "fourth-block",
+      "name": "South Canteen",
+      "snap_m": 14.728918365216158,
+      "comp": 0
+    },
+    {
+      "id": "chapel",
+      "name": "Chapel",
+      "snap_m": 40.94059468299521,
+      "comp": 0
+    }
+  ],
+  "entrance_report": [
+    {
+      "id": "firstblock-main",
+      "buildingId": "first-block",
+      "snap_m": 7.7499675141406,
+      "comp": 0
+    },
+    {
+      "id": "firstblock-side",
+      "buildingId": "first-block",
+      "snap_m": 23.05801935107412,
+      "comp": 0
+    },
+    {
+      "id": "secondblock-side",
+      "buildingId": "second-block",
+      "snap_m": 26.440914728449194,
+      "comp": 0
+    },
+    {
+      "id": "thirdblock-audi",
+      "buildingId": "third-block",
+      "snap_m": 2.682560056434396,
+      "comp": 3
+    },
+    {
+      "id": "thirdblock-back",
+      "buildingId": "third-block",
+      "snap_m": 6.0331877790463215,
+      "comp": 6
+    }
+  ]
+}

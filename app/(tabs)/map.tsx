@@ -144,6 +144,8 @@ export default function MapScreen() {
   ) => {
     const entrances = getEntrancesForPlace(placeId);
     if (entrances.length === 0) return null;
+    const main = entrances.find((e) => e.type === "main");
+    if (main) return main;
     if (userLoc) {
       let nearest = entrances[0];
       let nearestScore = Number.POSITIVE_INFINITY;
@@ -158,8 +160,7 @@ export default function MapScreen() {
       }
       return nearest;
     }
-    const main = entrances.find((e) => e.type === "main");
-    return main ?? entrances[0];
+    return entrances[0];
   };
 
   const placesFeatureCollection = useMemo<FeatureCollection<Point>>(() => {

@@ -1,0 +1,123 @@
+{
+  "places": [
+    {
+      "id": "third-block",
+      "name": "Third Block",
+      "coord": [
+        77.438841,
+        12.8626
+      ],
+      "nearest": [
+        77.438718,
+        12.862682
+      ],
+      "snap_m": 16.14
+    },
+    {
+      "id": "fourth-block",
+      "name": "Fourth Block",
+      "coord": [
+        77.43915,
+        12.862427
+      ],
+      "nearest": [
+        77.439024,
+        12.862547
+      ],
+      "snap_m": 19.05
+    },
+    {
+      "id": "fifth-block",
+      "name": "Fifth Block",
+      "coord": [
+        77.438516,
+        12.861963
+      ],
+      "nearest": [
+        77.438665,
+        12.861923
+      ],
+      "snap_m": 16.76
+    },
+    {
+      "id": "pu-block",
+      "name": "PU Block",
+      "coord": [
+        77.437391,
+        12.86007
+      ],
+      "nearest": [
+        77.437423,
+        12.859872
+      ],
+      "snap_m": 22.16
+    },
+    {
+      "id": "architecture",
+      "name": "Architecture Block",
+      "coord": [
+        77.438477,
+        12.860067
+      ],
+      "nearest": [
+        77.438488,
+        12.85951
+      ],
+      "snap_m": 61.58
+    },
+    {
+      "id": "devdan",
+      "name": "Devadan Hall",
+      "coord": [
+        77.439342,
+        12.859932
+      ],
+      "nearest": [
+        77.439708,
+        12.85988
+      ],
+      "snap_m": 40.13
+    },
+    {
+      "id": "chapel",
+      "name": "Chapel",
+      "coord": [
+        77.437719,
+        12.860132
+      ],
+      "nearest": [
+        77.437783,
+        12.859767
+      ],
+      "snap_m": 40.94
+    }
+  ],
+  "entrances": [
+    {
+      "id": "firstblock-side",
+      "buildingId": "first-block",
+      "coord": [
+        77.437844,
+        12.862826
+      ],
+      "nearest": [
+        77.437791,
+        12.862624
+      ],
+      "snap_m": 23.06
+    },
+    {
+      "id": "secondblock-side",
+      "buildingId": "second-block",
+      "coord": [
+        77.438176,
+        12.862676
+      ],
+      "nearest": [
+        77.437977,
+        12.862538
+      ],
+      "snap_m": 26.44
+    }
+  ]
+}
